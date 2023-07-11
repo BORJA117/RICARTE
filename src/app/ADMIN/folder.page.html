@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="black">
+    <ion-title class="menu">Inicio sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="inicio">
+    <div class="formulario">
+      <form>
+        <p>
+          <label>Correo</label>
+          <input type="email" required="obligatorio">
+        </p>
+        <p>
+          <label>Contraseña</label>
+          <input type="password" required="obligatorio">
+        </p>
+        <button type="submit" [routerLink]="['/opciones-admin']">
+          <p>Iniciar sesión</p>
+        </button>
+      </form>
+    </div>
+  </div>
+</ion-content>
+

@@ -1,0 +1,18 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="black">
+    <ion-title class="menu">QR GENERADO</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="content-container">
+  <div class="container">
+    <ion-label>{{ nombre }}</ion-label>
+    <a href="/cuestionario-qr-admin">
+      <ion-img src="/assets/icon/QR1.png"></ion-img>
+    </a>
+    <ion-button class="update-button" (click)="actualizarNombre()">Compartir</ion-button>
+  </div>
+</ion-content>
+
+

@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="black">
+    <ion-title class="menu">Generar QR</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item>
+      <ion-input label="Nombre:"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-input label="Apellidos:"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-input label="Correo electrónico:" type="email"></ion-input>
+    </ion-item>
+  
+  </ion-list>
+  <ion-button expand="block" color="green" routerLink="/compartir-qr-admin">Generar QR</ion-button> 
+</ion-content>

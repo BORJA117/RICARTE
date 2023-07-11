@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="black">
+    <ion-title class="menu">OPCIONES ADMINISTRADOR</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <div class="inicio">
+    <div class="formulario">      
+          <form>       
+                <button type="submit" [routerLink]="['/qr-admin']"><p>Generar QR</p></button>         
+          </form>
+          <form>       
+            <button type="submit" [routerLink]="['/sensor-temperatura']"><p>Mirar temperatura</p></button>         
+      </form>
+      <form>       
+        <button type="submit" [routerLink]="['/historial-accesos']"><p>Historial de accesos</p></button>         
+  </form>
+  <form>       
+    <button type="submit" [routerLink]="['/cuestionario-emp']"><p>Alta de empleados</p></button>         
+</form>
+    </div>  
+  </div>
+</ion-content>

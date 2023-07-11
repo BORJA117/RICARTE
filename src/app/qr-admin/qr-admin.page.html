@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="black">
+    <ion-title class="menu">GENERAR QR</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <div class="inicio">
+    <div class="formulario">      
+          <form>       
+                <button type="submit" [routerLink]="['/imagen-qr']"><p>Generar Entrada</p></button>         
+          </form>
+          <form>       
+            <button type="submit" [routerLink]="['/cuestionario-qr-admin']"><p>Visitante</p></button>         
+      </form>
+    </div>  
+  </div>
+</ion-content>
