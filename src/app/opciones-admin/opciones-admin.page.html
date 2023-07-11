@@ -1,23 +1,52 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="black">
-    <ion-title class="menu">OPCIONES ADMINISTRADOR</ion-title>
+    <ion-title class="menu">Opciones Administrador</ion-title>
   </ion-toolbar>
 </ion-header>
+
 <ion-content [fullscreen]="true">
-  <div class="inicio">
-    <div class="formulario">      
-          <form>       
-                <button type="submit" [routerLink]="['/qr-admin']"><p>Generar QR</p></button>         
-          </form>
-          <form>       
-            <button type="submit" [routerLink]="['/sensor-temperatura']"><p>Mirar temperatura</p></button>         
-      </form>
-      <form>       
-        <button type="submit" [routerLink]="['/historial-accesos']"><p>Historial de accesos</p></button>         
-  </form>
-  <form>       
-    <button type="submit" [routerLink]="['/cuestionario-emp']"><p>Alta de empleados</p></button>         
-</form>
-    </div>  
-  </div>
+
+  <div class="centro2">
+
+  <ion-card [routerLink]="['/qr-admin']">
+    <ion-card-content  class="centro">
+      <ion-img src="/assets/qr.png" class="imagen"></ion-img>
+    </ion-card-content>
+    <ion-card-header class="centro">
+      <ion-card-title>Generar código QR</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+
+  <ion-card [routerLink]="['/sensor-temperatura']">
+    <ion-card-content  class="centro">
+      <ion-img src="/assets/temperatura.png" class="imagen"></ion-img>
+    </ion-card-content>
+    <ion-card-header class="centro">
+      <ion-card-title>Temperatura</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+
+  <ion-card [routerLink]="['/historial-accesos']">
+    <ion-card-content  class="centro">
+      <ion-img src="/assets/acceso.png" class="imagen"></ion-img>
+    </ion-card-content>
+    <ion-card-header class="centro">
+      <ion-card-title>Historial de accesos</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+
+  <ion-card>
+    <ion-card-content  class="centro">
+      <ion-img src="/assets/contratado.png" class="imagen"></ion-img>
+    </ion-card-content>
+    <ion-card-header class="centro">
+      <ion-card-title>Alta de empleados</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+</div>
+
 </ion-content>
