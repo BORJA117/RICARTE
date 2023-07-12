@@ -4,8 +4,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-
+<ion-content [fullscreen]="true" class="login-content">
   <div class="wrapper fadeInDown">
     <div id="formContent">
       <!-- Tabs Titles -->
@@ -13,7 +12,7 @@
   
       <!-- Icon -->
       <div class="fadeIn first">
-        <img src= "assets/icono.png" id="icon" alt="User Icon" />
+        <img src="assets/icono.png" id="icon" alt="User Icon" />
       </div>
 
       <!-- Login Form -->
@@ -22,8 +21,6 @@
         <input type="text" id="password" class="fadeIn third" name="login" placeholder="Contraseña">
         <input type="submit" class="fadeIn fourth" value="Iniciar sesión" [routerLink]="['/opciones-admin']">
       </form>     
-  
     </div>
   </div>
-
 </ion-content>

@@ -4,22 +4,24 @@
   </ion-toolbar>
 </ion-header>
 
+<ion-content [fullscreen]="true" class="login-content">
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+      <h2 class="active"> Iniciar sesión </h2>
+  
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <img src="assets/icono.png" id="icon" alt="User Icon" />
+      </div>
 
-<ion-content [fullscreen]="true">
-  <div class="inicio">
-    <div class="formulario">      
-          <form>       
-                <p>
-                  <label>Correo</label>
-                    <input type="email" required="obligatorio">
-                </p>
-                <p>
-                  <label>Contraseña</label>
-                    <input type="password" required="obligatorio">
-                </p>
-                <button type="submit" [routerLink]="['/cuestionario-visitantes']"><p>Iniciar sesión</p></button>         
-          </form>
-    </div>  
+      <!-- Login Form -->
+      <form>
+        <input type="text" id="login" class="fadeIn second" name="login" placeholder="Correo">
+        <input type="text" id="password" class="fadeIn third" name="login" placeholder="Contraseña">
+        <input type="submit" class="fadeIn fourth" value="Iniciar sesión" [routerLink]="['/opciones-admin']">
+      </form>     
+    </div>
   </div>
 </ion-content>
 

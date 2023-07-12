@@ -21,7 +21,7 @@ const routes: Routes = [
   },
   {
     path: 'qr-admin',
-    loadChildren: () => import('./qr-admin/qr-admin.module').then( m => m.QRADMINPageModule)
+    loadChildren: () => import('./Opciones QR ADMIN/qr-admin.module').then( m => m.QRADMINPageModule)
   },
   {
     path: 'opciones-admin',
