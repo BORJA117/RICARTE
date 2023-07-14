@@ -1,49 +1,3 @@
-<<<<<<< HEAD
-//eve
-.menu{
-  text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 25px;
-  color: white;
-}
-
-ion-toolbar {
-  border-width: 6px;
-  border-color: #4fc9d7;
-  border-left: 0px;
-  border-right: 0px;
-  border-top: 0px;
-  border-style: solid;
-  background-color: black;
-}
-
-
-.inicio{  
-  width: 460px; 
-  height: auto;
-  margin: 80px auto;
-  padding-top: 20px;
-  padding-bottom: 20px;  
-  background-color: #ffffff; 
-  padding-left: 20px; 
-  border-style: solid;
-  border-color: #000000;
-  border-width: medium;
-}
-
-
-input{
-  background-color: #fbfbfb; 
-  width: 408px; 
-  height: 40px; 
-  border-radius: 5px;  
-  border-style: solid; 
-  border-width: 1px; 
-  border-color: #000000; 
-  margin-top: 10px;  
-  padding-left: 10px;
-  margin-bottom: 20px; 
-=======
 .content-container {
     display: flex;
     justify-content: center;
@@ -97,7 +51,7 @@ input{
     color: white;
   }
   .button{
-    background-color: rgb(51, 255, 0);
+    background-color: #4fc9d7;
   }
   
   ion-toolbar {
@@ -164,58 +118,5 @@ input{
   button p{
     color: #fff; 
   }
-  .menu{
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 25px;
-    color: white;
-}
-
-ion-toolbar {
-    border-width: 6px;
-    border-color:  #4fc9d7;
-    border-left: 0px;
-    border-right: 0px;
-    border-top: 0px;
-    border-style: solid;
-    background-color: black;
->>>>>>> b0b047d (Descripción del commit)
-}
-
-ion-button{
-  width: 350px;
-  height: 50px;
-  display:block;
-  margin: 0 auto;
-
-}
-
-ion-title{
-  text-align: center;
-  color: rgb(3, 3, 3);
-  font-size: 25px;
-}
-ion-card-subtitle{
-  text-align: center;
-  color: rgb(3, 3, 3);
-  font-size: 15px;
-}
-
-ion-card{
-  width: 300px;
-  height: 300px;
-  display:block;
-  margin: 0 auto;
-
-
-}
-
-ion-content{
-  display: flex;
-  justify-content: center;
-
-}
-
-
-
+  
   

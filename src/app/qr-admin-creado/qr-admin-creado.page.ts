@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-qr-visitantes',
-  templateUrl: './qr-visitantes.page.html',
-  styleUrls: ['./qr-visitantes.page.scss'],
+  selector: 'app-qr-admin-creado',
+  templateUrl: './qr-admin-creado.page.html',
+  styleUrls: ['./qr-admin-creado.page.scss'],
 })
-export class QRVISITANTESPage{
+export class QrAdminCreadoPage{
+
   
   nombre: string;
 

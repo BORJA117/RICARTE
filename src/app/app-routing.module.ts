@@ -67,6 +67,14 @@ const routes: Routes = [
     path: 'cuestionario-visitantes',
     loadChildren: () => import('./cuestionario-visitantes/cuestionario-visitantes.module').then( m => m.CUESTIONARIOVISITANTESPageModule)
   },
+  {
+    path: 'teperatura-empleados',
+    loadChildren: () => import('./teperatura-empleados/teperatura-empleados.module').then( m => m.TeperaturaEmpleadosPageModule)
+  },
+  {
+    path: 'qr-admin-creado',
+    loadChildren: () => import('./qr-admin-creado/qr-admin-creado.module').then( m => m.QrAdminCreadoPageModule)
+  },
   
   
 ];

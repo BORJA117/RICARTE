@@ -4,17 +4,38 @@
   </ion-toolbar>
 </ion-header>
 
-  <ion-content [fullscreen]="true">
-    <div class="inicio">
-      <div class="formulario">      
-            <form>       
-                  <button type="submit" [routerLink]="['/imagen-qr']"><p>Generar QR</p></button>         
-            </form>
-            <form>       
-              <button type="submit" [routerLink]="['/sensor-temperatura']"><p>Mirar temperatura</p></button>         
-        </form>
-      </div>  
-    </div>
-  </ion-content>
+
+<ion-content [fullscreen]="true">
+
+  <div class="centro2">
+
+  <ion-card [routerLink]="['/qr-visitantes']">
+    <ion-card-content  class="centro">
+      <ion-img src="/assets/qr.png" class="imagen"></ion-img>
+    </ion-card-content>
+    <ion-card-header class="centro">
+      <ion-card-title>Mostrar QR</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card [routerLink]="['/teperatura-empleados']">
+    <ion-card-content  class="centro">
+      <ion-img src="/assets/temperatura.png" class="imagen"></ion-img>
+    </ion-card-content>
+    <ion-card-header class="centro">
+      <ion-card-title>Temperatura</ion-card-title>
+    </ion-card-header>
+  </ion-card>
 
 
+
+
+</div>
+
+</ion-content>
+
+  
+
+
+  /imagen-qr
+  /sensor-temperatura

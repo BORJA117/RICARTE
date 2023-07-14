@@ -5,11 +5,7 @@ describe('OPCIONESEMPPage', () => {
   let component: OPCIONESEMPPage;
   let fixture: ComponentFixture<OPCIONESEMPPage>;
 
-  beforeEach(async(() => {
-    fixture = TestBed.createComponent(OPCIONESEMPPage);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  }));
+  
 
   it('should create', () => {
     expect(component).toBeTruthy();
