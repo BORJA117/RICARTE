@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="black">
+    <ion-title class="menu">Opciones empleados</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+
+  <div class="centro2">
+
+  <ion-card [routerLink]="['/qr-visitantes']">
+    <ion-card-content  class="centro">
+      <ion-img src="/assets/qr2.png" class="imagen"></ion-img>
+    </ion-card-content>
+    <ion-card-header class="centro">
+      <ion-card-title>Código QR</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card [routerLink]="['/teperatura-empleados']">
+    <ion-card-content  class="centro">
+      <ion-img src="/assets/temperatura.png" class="imagen"></ion-img>
+    </ion-card-content>
+    <ion-card-header class="centro">
+      <ion-card-title>Temperatura</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+
+
+
+</div>
+
+</ion-content>
+
+  
+
+
+  /imagen-qr
+  /sensor-temperatura

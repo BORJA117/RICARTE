@@ -1,0 +1,47 @@
+ion-icon{
+  color: white;
+  size: 50%;
+}
+  
+  .menu{
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 20px;
+    color: white;
+    font-weight:  bolder;
+  }
+  
+  
+  ion-toolbar {
+    border-width: 6px;
+    border-color:  #4fc9d7;
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
+    border-style: solid;
+    background-color: black;
+  }
+
+  ion-card {
+    --background: #000000;
+    --color: #9efff0;
+  }
+  
+  ion-card-title {
+    --color: white;
+    font-size: 15px;
+    font-weight:  bolder;
+  }
+
+
+  .centro{
+    display: grid;
+    place-content: center;
+  
+  }
+
+  .imagen{
+    width: 100px;
+    height: 100px;
+  }
+

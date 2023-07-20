@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="black">
+    <ion-title class="menu">Generar código QR</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div class="centro2">
+
+  <ion-card [routerLink]="['/qr-admin-creado']">
+    <ion-card-content  class="centro">
+      <ion-img src="/assets/administrador.png" class="imagen"></ion-img>
+    </ion-card-content>
+    <ion-card-header class="centro">
+      <ion-card-title>Administrador</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card [routerLink]="['/cuestionario-qr-admin']">
+    <ion-card-content  class="centro">
+      <ion-img src="/assets/visitantes.png" class="imagen"></ion-img>
+    </ion-card-content>
+    <ion-card-header class="centro">
+      <ion-card-title>Visitantes</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+
+
+
+</div>
+
+</ion-content>
