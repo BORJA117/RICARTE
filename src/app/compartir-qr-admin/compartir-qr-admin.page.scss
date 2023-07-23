@@ -258,6 +258,23 @@ ion-button{
   button p{
     color: #fff; 
   }
+
+  /* Estilo para el contenedor de la página */
+  .content-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Asegura que ocupe toda la altura disponible */
+  }
+
+/* Estilo para la imagen del código QR */
+.qr-image {
+  max-width: 300px; /* Tamaño máximo de la imagen */
+  max-height: 300px; /* Tamaño máximo de la imagen */
+  width: 100%; /* Asegura que la imagen se ajuste al contenedor */
+  height: auto; /* Ajusta automáticamente la altura para mantener la proporción */
+}
+
   
   
 

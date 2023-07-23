@@ -7,17 +7,24 @@
 <ion-content [fullscreen]="true">
   <ion-list>
     <ion-item>
-      <ion-input label="Nombre:"></ion-input>
+      <ion-label>Nombre:</ion-label>
+      <ion-input [(ngModel)]="formData.nombre"></ion-input>
     </ion-item>
-  
+
     <ion-item>
-      <ion-input label="Apellidos:"></ion-input>
+      <ion-label>Apellidos:</ion-label>
+      <ion-input [(ngModel)]="formData.apellidos"></ion-input>
     </ion-item>
-  
+
     <ion-item>
-      <ion-input label="Correo electrónico:" type="email"></ion-input>
+      <ion-label>Correo electrónico:</ion-label>
+      <ion-input [(ngModel)]="formData.correo" type="email"></ion-input>
     </ion-item>
-  
   </ion-list>
-  <ion-button expand="block" color="green" routerLink="/compartir-qr-admin">Generar QR</ion-button> 
+
+  <!-- Botón para generar el código QR -->
+  <ion-button expand="block" color="green" (click)="generarQR()">Generar QR</ion-button>
+
+  <!-- Elemento canvas para mostrar el código QR -->
+  <canvas #qrCanvas></canvas>
 </ion-content>

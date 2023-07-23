@@ -43,6 +43,7 @@ const routes: Routes = [
     path: 'compartir-qr-admin',
     loadChildren: () => import('./compartir-qr-admin/compartir-qr-admin.module').then( m => m.CompartirQRADMINPageModule)
   },
+  
   {
     path: 'sensor-temperatura',
     loadChildren: () => import('./sensor-temperatura/sensor-temperatura.module').then( m => m.SENSORTEMPERATURAPageModule)

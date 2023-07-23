@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, AfterViewInit, ElementRef } from '@angular/core';
+import * as QRCode from 'qrcode';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',

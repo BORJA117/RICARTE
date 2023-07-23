@@ -1,16 +1,13 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="black">
-    <ion-title class="menu">QR GENERADO ADMIN</ion-title>
+    <ion-title class="menu">Código QR generado</ion-title>
   </ion-toolbar>
 </ion-header>
 
-
-<ion-content class="content-container">
+<ion-content [fullscreen]="true" class="content-container">
+  <!-- Agrega la clase "container" al contenedor de la imagen -->
   <div class="container">
-    <ion-label>{{ nombre }}</ion-label>
-    <a href="/cuestionario-qr-admin">
-      <ion-img src="/assets/icon/QR1.png"></ion-img>
-    </a>
-    <ion-button class="update-button" (click)="actualizarNombre()">Compartir</ion-button>
+    <!-- Mostrar la imagen del código QR centrada y con un tamaño reducido -->
+    <ion-img [src]="qrDataURL" class="qr-image"></ion-img>
   </div>
 </ion-content>
