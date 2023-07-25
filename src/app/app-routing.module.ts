@@ -43,7 +43,6 @@ const routes: Routes = [
     path: 'compartir-qr-admin',
     loadChildren: () => import('./compartir-qr-admin/compartir-qr-admin.module').then( m => m.CompartirQRADMINPageModule)
   },
-  
   {
     path: 'sensor-temperatura',
     loadChildren: () => import('./sensor-temperatura/sensor-temperatura.module').then( m => m.SENSORTEMPERATURAPageModule)
@@ -66,7 +65,7 @@ const routes: Routes = [
   },
   {
     path: 'cuestionario-visitantes',
-    loadChildren: () => import('./cuestionario-visitantes/cuestionario-visitantes.module').then( m => m.CUESTIONARIOVISITANTESPageModule)
+    loadChildren: () => import('./cuestionario-visitantes/cuestionario-visitantes.module').then( m => m.CuestionarioVisitantesPageModule)
   },
   {
     path: 'teperatura-empleados',
@@ -76,8 +75,7 @@ const routes: Routes = [
     path: 'qr-admin-creado',
     loadChildren: () => import('./qr-admin-creado/qr-admin-creado.module').then( m => m.QrAdminCreadoPageModule)
   },
-  
-  
+  // Agregar otras rutas aquí...
 ];
 
 @NgModule({
@@ -86,4 +84,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

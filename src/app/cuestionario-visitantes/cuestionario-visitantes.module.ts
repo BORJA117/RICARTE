@@ -1,20 +1,27 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { CUESTIONARIOVISITANTESPageRoutingModule } from './cuestionario-visitantes-routing.module';
+import { CuestionarioVisitantesPage } from './cuestionario-visitantes.page';
 
-import { CUESTIONARIOVISITANTESPage } from './cuestionario-visitantes.page';
+const routes: Routes = [
+  {
+    path: '',
+    component: CuestionarioVisitantesPage
+  }
+];
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CUESTIONARIOVISITANTESPageRoutingModule
+    ReactiveFormsModule,
+    RouterModule.forChild(routes)
   ],
-  declarations: [CUESTIONARIOVISITANTESPage]
+  declarations: [CuestionarioVisitantesPage]
 })
-export class CUESTIONARIOVISITANTESPageModule {}
+export class CuestionarioVisitantesPageModule { }

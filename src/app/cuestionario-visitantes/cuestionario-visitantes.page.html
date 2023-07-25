@@ -5,44 +5,39 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-
   <ion-list>
     <ion-item>
-      <ion-label>Nombre:</ion-label>
-      <ion-input [(ngModel)]="formData.nombre"></ion-input>
+      <ion-label position="floating">Nombre:</ion-label>
+      <ion-input [(ngModel)]="nombre"></ion-input>
     </ion-item>
   
     <ion-item>
-      <ion-label>Apellidos:</ion-label>
-      <ion-input [(ngModel)]="formData.apellidos"></ion-input>
+      <ion-label position="floating">Apellidos:</ion-label>
+      <ion-input [(ngModel)]="apellidos"></ion-input>
     </ion-item>
   
     <ion-item>
-      <ion-label>Empresa:</ion-label>
-      <ion-input [(ngModel)]="formData.empresa"></ion-input>
+      <ion-label position="floating">Empresa:</ion-label>
+      <ion-input [(ngModel)]="empresa"></ion-input>
     </ion-item>
   
     <ion-item>
-      <ion-label>Correo electrónico:</ion-label>
-      <ion-input [(ngModel)]="formData.correo" type="email"></ion-input>
+      <ion-label position="floating">Correo electrónico:</ion-label>
+      <ion-input [(ngModel)]="correo" type="email"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label>Número de teléfono:</ion-label>
-      <ion-input [(ngModel)]="formData.telefono" type="tel"></ion-input>
+      <ion-label position="floating">Número de teléfono:</ion-label>
+      <ion-input [(ngModel)]="telefono"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label>Motivo de ingreso:</ion-label>
-      <ion-input [(ngModel)]="formData.motivo"></ion-input>
+      <ion-label position="floating">Motivo de ingreso:</ion-label>
+      <ion-input [(ngModel)]="motivoIngreso"></ion-input>
     </ion-item>
-  
   </ion-list>
 
-  <!-- Elemento canvas para mostrar el código QR -->
-  <canvas #qrCanvas></canvas>
-
-  <!-- Botón para generar el código QR y navegar a la página de imagen-qr -->
   <ion-button expand="block" color="green" (click)="generarQR()">Generar QR</ion-button>
+  <ion-button expand="block" color="danger" (click)="limpiarCampos()">Limpiar</ion-button>
 
 </ion-content>

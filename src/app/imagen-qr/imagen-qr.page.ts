@@ -1,21 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import * as QRCode from 'qrcode'; // Importar la biblioteca qrcode
 
 @Component({
   selector: 'app-imagen-qr',
   templateUrl: './imagen-qr.page.html',
   styleUrls: ['./imagen-qr.page.scss'],
 })
-export class ImagenQRPage{
+export class ImagenQRPage {
+  qrData: string = '';
+  qrImageUrl: string = '';
 
-  nombre: string;
-
-  constructor() {
-    // Inicializar la temperatura con un valor predeterminado
-    this.nombre = 'Nombre del usuario';
+  constructor(private route: ActivatedRoute) {
+    this.route.queryParams.subscribe(params => {
+      this.qrData = JSON.stringify(params); // Obtener los datos enviados desde la página anterior
+      this.generateQR(); // Llamar al método para generar el QR
+    });
   }
 
-  actualizarNombre() {
-    // Lógica para actualizar la temperatura desde una API o cualquier otra fuente de datos
-    // Aquí puedes implementar la lógica para obtener la nueva temperatura y asignarla a this.temperatura
+  // Método para generar el QR a partir de los datos
+  generateQR() {
+    QRCode.toDataURL(this.qrData, (err, url) => {
+      if (err) {
+        console.error('Error generando el QR', err);
+      } else {
+        this.qrImageUrl = url; // Asignar la URL de la imagen QR generada a la propiedad qrImageUrl
+      }
+    });
   }
 }
