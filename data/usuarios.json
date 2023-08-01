@@ -1,0 +1,49 @@
+{
+  "usuarios": [
+    {
+      "nombre": "LUIS ENRIQUE",
+      "apellidos": "BORJA VALENTIN",
+      "empresa": "UTCJ",
+      "username": "si",
+      "numeroTelefono": "656-573-1905",
+      "password": "sip",
+      "id": 2
+    },
+    {
+      "nombre": "LUIS ENRIQUE",
+      "apellidos": "BORJA",
+      "empresa": "UTCJ",
+      "username": "luis@gmail.com",
+      "numeroTelefono": "6565731905",
+      "password": "17160056",
+      "id": 3
+    },
+    {
+      "id": 4,
+      "nombre": "rrrrrrrrrr",
+      "apellidos": "rrrrrr",
+      "empresa": "rrrrrrr",
+      "username": "rrrrrrrrrrr",
+      "numeroTelefono": "rrrrrr",
+      "password": "rrrrr"
+    },
+    {
+      "id": 5,
+      "nombre": "tony",
+      "apellidos": "montana",
+      "empresa": "UTCJ",
+      "username": "eltonas",
+      "numeroTelefono": "6567690415",
+      "password": "123456"
+    },
+    {
+      "id": 6,
+      "nombre": "wwwwwww",
+      "apellidos": "wwwwwwwww",
+      "empresa": "wwwwwwww",
+      "username": "wwwwwww",
+      "numeroTelefono": "wwwwwwwww",
+      "password": "wwwwwwwwwwwww"
+    }
+  ]
+}
