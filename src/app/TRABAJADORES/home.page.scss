@@ -18,6 +18,38 @@ ion-toolbar {
   background-color: black;
 }
 
+.login-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  text-align: center;
+}
+
+#formContent {
+  max-width: 300px;
+  margin: auto;
+  padding: 20px;
+  background-color: #f6f6f6;
+  border-radius: 8px;
+}
+
+#formContent h2 {
+  font-size: 20px;
+}
+
+.input-wrapper {
+  margin-bottom: 10px;
+}
+
+.button {
+  margin-top: 20px;
+}
+
+/* Otros estilos para el diseño del formulario... */
+
 
 .inicio{  
   width: 460px; 

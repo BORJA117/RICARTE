@@ -1,30 +1,35 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="black">
-    <ion-title class="menu">Generar QR</ion-title>
+    <ion-title class="menu">VISITANTES</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="login-content">
   <div class="wrapper fadeInDown">
     <div id="formContent">
-      <!-- Tabs Titles -->
-      <h2 class="active"> Iniciar sesión </h2>
+      <h2 class="active">Iniciar sesión</h2>
   
-      <!-- Icon -->
       <div class="fadeIn first">
         <img src="assets/icono.png" id="icon" alt="User Icon" />
       </div>
 
-      <!-- Login Form -->
-      <form>
-        <input type="text" id="login" class="fadeIn second" name="login" placeholder="Correo">
-        <input type="text" id="password" class="fadeIn third" name="login" placeholder="Contraseña">
-        <input type="submit" class="fadeIn fourth" value="Iniciar sesión" [routerLink]="['/cuestionario-visitantes']">
+      <form (ngSubmit)="login()">
+        <div class="input-wrapper">
+          <input type="text" id="login" class="fadeIn second" name="login" placeholder="Correo" [(ngModel)]="username">
+        </div>
+        <div class="input-wrapper">
+          <input
+            type="{{ passwordFieldType }}"
+            id="password"
+            class="fadeIn second"
+            name="login"
+            placeholder="Contraseña"
+            [(ngModel)]="password"
+          >
+        </div>
+        <ion-icon (click)="togglePassword()" name="eye" class="password-toggle-icon"></ion-icon>
+        <input type="submit" class="fadeIn fourth button" value="Iniciar sesión">
       </form>     
     </div>
   </div>
 </ion-content>
-
-
-
-
