@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { CompartirQRADMINPage } from './compartir-qr-admin.page';
+import { CompartirQRAdminPage } from './compartir-qr-admin.page';
+import { CompartirQRADMINPage } from 'RICARTE/src/app/compartir-qr-admin/compartir-qr-admin.page';
 
 describe('CompartirQRADMINPage', () => {
   let component: CompartirQRADMINPage;

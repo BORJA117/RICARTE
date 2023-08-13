@@ -1,20 +1,36 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-sensor-temperatura',
   templateUrl: './sensor-temperatura.page.html',
   styleUrls: ['./sensor-temperatura.page.scss'],
 })
-export class SENSORTEMPERATURAPage {
-  temperatura: string;
+export class SENSORTEMPERATURAPage implements OnInit {
+  temperatura: number;
+  humedad: number;
 
-  constructor() {
-    // Inicializar la temperatura con un valor predeterminado
-    this.temperatura = 'temperatura';
+  constructor(private http: HttpClient) {
+    this.temperatura = 0;
+    this.humedad = 0;
+  }
+
+  ngOnInit() {
+    console.log("Inicializando componente");
+    this.actualizarTemperatura();
   }
 
   actualizarTemperatura() {
-    // Lógica para actualizar la temperatura desde una API o cualquier otra fuente de datos
-    // Aquí puedes implementar la lógica para obtener la nueva temperatura y asignarla a this.temperatura
+    console.log("Obteniendo datos...");
+    this.http.get<any>('http://localhost:3000/obtener-datos-temperatura-humedad').subscribe(
+      (data) => {
+        console.log("Datos recibidos:", data);
+        this.temperatura = data.Temperatura;
+        this.humedad = data.Humedad;
+      },
+      (error) => {
+        console.error('Error al obtener los datos de temperatura y humedad:', error);
+      }
+    );
   }
 }

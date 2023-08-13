@@ -9,6 +9,7 @@ import { ImagenQRPageRoutingModule } from './imagen-qr-routing.module';
 import { ImagenQRPage } from './imagen-qr.page';
 
 @NgModule({
+  
   imports: [
     CommonModule,
     FormsModule,

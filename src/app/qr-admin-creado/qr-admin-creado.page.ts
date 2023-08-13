@@ -1,22 +1,31 @@
 import { Component, OnInit } from '@angular/core';
+import * as QRCode from 'qrcode';
+import { Usuario } from '../interfaces/usuario';
 
 @Component({
   selector: 'app-qr-admin-creado',
   templateUrl: './qr-admin-creado.page.html',
   styleUrls: ['./qr-admin-creado.page.scss'],
 })
-export class QrAdminCreadoPage{
 
-  
-  nombre: string;
+export class QrAdminCreadoPage implements OnInit {
+  usuario: Usuario;
+  qrData: string; // Contenido del QR
 
   constructor() {
-    // Inicializar la temperatura con un valor predeterminado
-    this.nombre = 'Nombre del usuario';
+    this.usuario = JSON.parse(localStorage.getItem('usuario') || '{}'); // Asigna un objeto vacío si no hay usuario
+    this.qrData = '';
   }
 
-  actualizarNombre() {
-    // Lógica para actualizar la temperatura desde una API o cualquier otra fuente de datos
-    // Aquí puedes implementar la lógica para obtener la nueva temperatura y asignarla a this.temperatura
+  ngOnInit() {
+    this.generateQR();
+  }
+
+  generateQR() {
+    // Genera el contenido del QR con el ID del usuario
+    if (this.usuario && this.usuario._id) {
+      this.qrData = this.usuario._id; // Asigna directamente el ID a qrData
+      QRCode.toCanvas(document.getElementById('qr-canvas'), this.qrData); // Genera el QR en un elemento HTML
+    }
   }
 }

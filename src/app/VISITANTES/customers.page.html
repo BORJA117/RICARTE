@@ -29,7 +29,11 @@
         </div>
         <ion-icon (click)="togglePassword()" name="eye" class="password-toggle-icon"></ion-icon>
         <input type="submit" class="fadeIn fourth button" value="Iniciar sesión">
-      </form>     
+      </form>  
+      <!-- Mostrar mensaje de error -->
+      <div *ngIf="loginError" class="error-message">
+        Credenciales inválidas. Por favor, verifica tus datos.
+      </div>
     </div>
   </div>
 </ion-content>

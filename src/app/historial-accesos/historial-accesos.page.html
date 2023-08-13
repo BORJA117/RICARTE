@@ -1,16 +1,24 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="black">
-    <ion-title class="menu">HISTORIAL DE ACCESOS</ion-title>
+    <ion-title class="menu">INGRESOS</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-card class="access-card">
-    <ion-card-header>
-      <ion-card-title class="name">Luis Borja</ion-card-title>
-      <ion-card-subtitle class="date">17/06/2023</ion-card-subtitle>
-      <ion-card-subtitle class="time">7:48 am</ion-card-subtitle>
-      <ion-card-subtitle class="description">Mantenimiento a ventiladores</ion-card-subtitle>
-    </ion-card-header>
-  </ion-card>
+
+<ion-content>
+  <ion-list>
+    <ion-card *ngFor="let ingreso of ingresos">
+      <ion-card-header>
+        <ion-card-title>{{ ingreso.nombre }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Apellidos: {{ ingreso.apellidos }}</p>
+        <p>ID: {{ ingreso.oid }}</p>
+      </ion-card-content>
+      <!-- Agrega un botón para eliminar el registro -->
+      <ion-button (click)="eliminarRegistro(ingreso._id)" color="danger" class="center-button">
+        Eliminar
+      </ion-button>
+    </ion-card>
+  </ion-list>
 </ion-content>

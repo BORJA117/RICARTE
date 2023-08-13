@@ -1,43 +1,25 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="black">
-    <ion-title class="menu">GENERAR QR</ion-title>
+    <ion-title class="menu">Generar QR</ion-title>
   </ion-toolbar>
 </ion-header>
+<ion-content class="login-content" [fullscreen]="true">
+  <form [formGroup]="empleadoForm" (ngSubmit)="onSubmit()">
+      <br>
+      <ion-input formControlName="nombre" label="Nombre" label-placement="floating" fill="outline" ></ion-input>
+      <br>
+      <ion-input formControlName="apellidos" label="Apellido" label-placement="floating" fill="outline" ></ion-input>
+      <br>
+      <ion-input formControlName="correo" label="Correo electronico" label-placement="floating" fill="outline" ></ion-input>
+      <br>
+      <ion-input formControlName="empresa" label="Empresa" label-placement="floating" fill="outline" ></ion-input>
+      <br>
+      <ion-input formControlName="telefono" label="Telefono" label-placement="floating" fill="outline" ></ion-input>
+      <br>
+      <ion-input formControlName="motivodeingreso" label="Motivo de ingreso" label-placement="floating" fill="outline" ></ion-input>
+      <br>
+  <ion-button expand="block" color="green" type="submit">Generar QR</ion-button> 
 
-<ion-content [fullscreen]="true">
-  <ion-list>
-    <ion-item>
-      <ion-label position="floating">Nombre:</ion-label>
-      <ion-input [(ngModel)]="nombre"></ion-input>
-    </ion-item>
-  
-    <ion-item>
-      <ion-label position="floating">Apellidos:</ion-label>
-      <ion-input [(ngModel)]="apellidos"></ion-input>
-    </ion-item>
-  
-    <ion-item>
-      <ion-label position="floating">Empresa:</ion-label>
-      <ion-input [(ngModel)]="empresa"></ion-input>
-    </ion-item>
-  
-    <ion-item>
-      <ion-label position="floating">Correo electrónico:</ion-label>
-      <ion-input [(ngModel)]="correo" type="email"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label position="floating">Número de teléfono:</ion-label>
-      <ion-input [(ngModel)]="telefono"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label position="floating">Motivo de ingreso:</ion-label>
-      <ion-input [(ngModel)]="motivoIngreso"></ion-input>
-    </ion-item>
-  </ion-list>
-
-  <ion-button expand="block" color="green" (click)="generarQR()">Generar QR</ion-button>
-  <ion-button expand="block" color="danger" (click)="limpiarCampos()">Limpiar</ion-button>
+  </form>
 
 </ion-content>

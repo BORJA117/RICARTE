@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
-import { CompartirQRADMINPage } from './compartir-qr-admin.page';
+import { CompartirQRAdminPage } from './compartir-qr-admin.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: CompartirQRADMINPage
+    component: CompartirQRAdminPage
   }
 ];
 
@@ -14,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class CompartirQRADMINPageRoutingModule {}
+export class CompartirQRAdminPageRoutingModule {}

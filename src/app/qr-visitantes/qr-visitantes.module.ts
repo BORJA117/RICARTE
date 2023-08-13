@@ -1,19 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { QRVISITANTESPageRoutingModule } from './qr-visitantes-routing.module';
+import { QRVISITANTESPage } from './qr-visitantes.page'; // Asegúrate de que la ruta sea correcta
 
-import { QRVISITANTESPage } from './qr-visitantes.page';
+const routes: Routes = [
+  {
+    path: '',
+    component: QRVISITANTESPage // Asegúrate de que la ruta sea correcta
+  }
+];
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    QRVISITANTESPageRoutingModule
+    RouterModule.forChild(routes)
   ],
   declarations: [QRVISITANTESPage]
 })

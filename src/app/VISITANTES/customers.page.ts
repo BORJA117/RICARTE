@@ -9,13 +9,13 @@ import { Usuario } from '../interfaces/usuario';
   styleUrls: ['./customers.page.scss'],
 })
 
-
 export class CustomersPage implements OnInit {
   public folder!: string;
   public username: string;
   public password: string;
-  public passwordFieldType: string = 'password'; // Agrega esta propiedad
-  public showPassword: boolean = false; // Agrega esta propiedad
+  public passwordFieldType: string = 'password'; 
+  public showPassword: boolean = false; 
+  public loginError: boolean = false; // Add this line to define loginError
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -45,7 +45,8 @@ export class CustomersPage implements OnInit {
         }
       },
       (error) => {
-        console.error('Error al verificar el inicio de sesión:', error);
+        console.error('Error al verificar el inicio de sesión de administrador:', error);
+        this.loginError = true; // Show the error message
       }
     );
   }

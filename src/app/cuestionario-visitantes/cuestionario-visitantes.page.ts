@@ -1,44 +1,74 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { ModalController } from '@ionic/angular';
+import { ModalContentPage } from '../modal-content/modal-content.page';
 import { Router } from '@angular/router';
+import * as QRCode from 'qrcode';
 
 @Component({
   selector: 'app-cuestionario-visitantes',
   templateUrl: './cuestionario-visitantes.page.html',
   styleUrls: ['./cuestionario-visitantes.page.scss'],
 })
-export class CuestionarioVisitantesPage {
-  nombre: string = ''; // Inicialización con valor predeterminado
-  apellidos: string = ''; // Inicialización con valor predeterminado
-  empresa: string = ''; // Inicialización con valor predeterminado
-  correo: string = ''; // Inicialización con valor predeterminado
-  telefono: string = ''; // Inicialización con valor predeterminado
-  motivoIngreso: string = ''; // Inicialización con valor predeterminado
+export class CuestionarioVisitantesPage implements OnInit {
+  empleadoForm: FormGroup;
 
-  constructor(private router: Router) { }
-
-  // Método para generar el QR y redirigir a la página "imagen-qr"
-  generarQR() {
-    // Puedes agregar aquí la lógica para generar el QR con los datos del formulario si es necesario
-
-    // Luego, redirige a la página "imagen-qr" y pasa los datos como parámetros en la URL
-    this.router.navigate(['/imagen-qr'], {
-      queryParams: {
-        nombre: this.nombre,
-        apellidos: this.apellidos,
-        empresa: this.empresa,
-        correo: this.correo,
-        telefono: this.telefono,
-        motivoIngreso: this.motivoIngreso
-      }
+  constructor(
+    private http: HttpClient,
+    private formBuilder: FormBuilder,
+    private modalController: ModalController,
+    private router: Router
+  ) {
+    this.empleadoForm = this.formBuilder.group({
+      id: [''],
+      nombre: [''],
+      apellidos: [''],
+      empresa: [''],
+      correo: [''],
+      telefono: [''],
+      motivodeingreso: [''],
     });
   }
 
-limpiarCampos() {
-  this.nombre = '';
-  this.apellidos = '';
-  this.empresa = '';
-  this.correo = '';
-  this.telefono = '';
-  this.motivoIngreso = '';
-}
+  ngOnInit() {}
+
+  async onSubmit() {
+    const formData = this.empleadoForm.value;
+
+    try {
+      const response = await this.http.post<any>('http://localhost:3000/guardar-formulario', formData).toPromise();
+      console.log('Datos guardados exitosamente:', response);
+
+      this.presentModal('¡Datos guardados con éxito!');
+
+      const qrData = JSON.stringify(response);
+      const qrOptions = {
+        errorCorrectionLevel: 'H' as QRCode.QRCodeErrorCorrectionLevel,
+      };
+
+      try {
+        const qrCodeDataURL = await QRCode.toDataURL(qrData, qrOptions);
+
+        this.router.navigate(['/imagen-qr', { qrCodeDataURL }]);
+      } catch (error) {
+        console.error('Error al generar el código QR:', error);
+      }
+    } catch (error) {
+      console.error('Error al guardar los datos:', error);
+      this.presentModal('¡Error al guardar los datos! Por favor, inténtalo nuevamente.');
+    }
+  }
+
+  async presentModal(message: string) {
+    const modal = await this.modalController.create({
+      component: ModalContentPage,
+      cssClass: 'modal-content.page.scss',
+      componentProps: {
+        message: message,
+      },
+    });
+
+    return await modal.present();
+  }
 }

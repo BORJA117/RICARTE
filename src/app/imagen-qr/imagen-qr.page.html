@@ -1,17 +1,32 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="black">
-    <ion-title class="menu">QR GENERADO VISITANTES</ion-title>
+    <ion-title class="menu">Código QR VISITANTES</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="login-content">
-  <ion-title>Nombre usuario</ion-title>
+<ion-content class="content-container">
 
-  <ion-card>
-    <ion-card-header>
-      <ion-img [src]="qrImageUrl"></ion-img> <!-- Mostrar la imagen QR -->
-    </ion-card-header>
-  </ion-card>
+  <br>
+  <br>
+  <ion-card-subtitle>Código QR únicamente válido para la entrada al centro de datos de
+    la Universidad Tecnológica de Ciudad Juárez</ion-card-subtitle>
+  <br>
 
-  <!-- Elimina el botón de actualizar y compartir si no es necesario -->
+  <div class="centrado">
+    <ion-card>
+      <ion-card-content class="centro">
+        <div *ngIf="qrDataURL">
+          <img [src]="qrDataURL" alt="Código QR del último formulario">
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <br>
+  <br>
+  <ion-card-subtitle>Fecha de creación:</ion-card-subtitle>
+  <ion-card-subtitle>02 de agosto del 2023</ion-card-subtitle>
+  <br>
+
+  <ion-button class="centered-button" (click)="descargarQR()">Descargar QR</ion-button>
+
 </ion-content>

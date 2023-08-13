@@ -31,18 +31,32 @@ const routes: Routes = [
     path: 'cuestionario-emp',
     loadChildren: () => import('./cuestionario-emp/cuestionario-emp.module').then(m => m.CuestionarioEMPPageModule)
   },
+
+
+
+
   {
     path: 'imagen-qr',
     loadChildren: () => import('./imagen-qr/imagen-qr.module').then(m => m.ImagenQRPageModule)
   },
+
+  
+  
+
+
+
   {
     path: 'cuestionario-qr-admin',
     loadChildren: () => import('./cuestionario-qr-admin/cuestionario-qr-admin.module').then(m => m.CuestionarioQrAdminPageModule)
   },
+
+
   {
     path: 'compartir-qr-admin',
-    loadChildren: () => import('./compartir-qr-admin/compartir-qr-admin.module').then(m => m.CompartirQRADMINPageModule)
+    loadChildren: () => import('./compartir-qr-admin/compartir-qr-admin.module').then(m => m.CompartirQRAdminPageModule)
   },
+
+  
   {
     path: 'sensor-temperatura',
     loadChildren: () => import('./sensor-temperatura/sensor-temperatura.module').then(m => m.SENSORTEMPERATURAPageModule)

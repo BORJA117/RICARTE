@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { ModalController } from '@ionic/angular';
 import { ModalContentPage } from '../modal-content/modal-content.page'; // Importa el componente del modal
 
+
 @Component({
   selector: 'app-cuestionario-emp',
   templateUrl: './cuestionario-emp.page.html',
@@ -12,7 +13,7 @@ import { ModalContentPage } from '../modal-content/modal-content.page'; // Impor
 export class CuestionarioEMPPage implements OnInit {
   empleadoForm: FormGroup;
 
-  constructor(private http: HttpClient, private formBuilder: FormBuilder, private modalController: ModalController) {
+  constructor(private http: HttpClient, private formBuilder: FormBuilder, private modalController: ModalController ) {
     // Initialize the form
     this.empleadoForm = this.formBuilder.group({
       id: [''], // If "id" is required, include it in the form
@@ -34,7 +35,7 @@ export class CuestionarioEMPPage implements OnInit {
     const formData = this.empleadoForm.value;
   
     // Realiza la solicitud HTTP POST al servidor
-    this.http.post<any>('http://localhost:3000/usuarios', formData).subscribe(
+    this.http.post<any>('http://localhost:3000/guardar-usuario', formData).subscribe(
       (response) => {
         // La solicitud fue exitosa, maneja la respuesta del servidor aquí si es necesario
         console.log('Datos guardados exitosamente:', response);
@@ -44,6 +45,8 @@ export class CuestionarioEMPPage implements OnInit {
   
         // Limpia el formulario después de guardar los datos
         this.empleadoForm.reset();
+
+
       },
       (error) => {
         // Ocurrió un error al enviar los datos al servidor

@@ -1,24 +1,48 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import * as QRCode from 'qrcode';
+import { DataService } from '../services/data.service'; // Asegúrate de tener la ruta correcta a tu servicio DataService
+import { Formulario } from '../interfaces/formulario'; // Asegúrate de tener la ruta correcta a tu modelo Formulario
 
 @Component({
   selector: 'app-compartir-qr-admin',
   templateUrl: './compartir-qr-admin.page.html',
   styleUrls: ['./compartir-qr-admin.page.scss'],
 })
-export class CompartirQRADMINPage implements OnInit {
+export class CompartirQRAdminPage implements OnInit {
   qrDataURL: string = '';
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private dataService: DataService
+  ) {}
 
   ngOnInit() {
-    // Obtener los datos del estado de la ruta al inicializar la página
-    this.getQRDataURLFromRouteState();
+    this.dataService.obtenerUltimoFormulario().subscribe(
+      (ultimoFormulario: Formulario) => {
+        if (ultimoFormulario) {
+          const contenidoQR = ultimoFormulario._id; // Asigna directamente el ID a contenidoQR
+          console.log('Contenido del QR:', contenidoQR); // Agregar este console.log
+          QRCode.toDataURL(contenidoQR, (err, codigoQR) => {
+            if (err) {
+              console.error('Error al generar el código QR:', err);
+              return;
+            }
+            this.qrDataURL = codigoQR;
+            console.log('URL del QR:', this.qrDataURL); // Agregar este console.log
+          });
+        }
+      },
+      (error) => {
+        console.error('Error al obtener el último formulario:', error);
+      }
+    );
   }
 
-  private getQRDataURLFromRouteState() {
-    this.route.paramMap.subscribe((params) => {
-      this.qrDataURL = params.get('qrDataURL') || '';
-    });
+  descargarQR() {
+    if (this.qrDataURL) {
+      const link = document.createElement('a');
+      link.href = this.qrDataURL;
+      link.download = 'codigo-qr.png'; // Nombre del archivo a descargar
+      link.click();
+    }
   }
 }

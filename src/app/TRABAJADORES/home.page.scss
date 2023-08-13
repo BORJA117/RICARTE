@@ -50,6 +50,21 @@ ion-toolbar {
 
 /* Otros estilos para el diseño del formulario... */
 
+.wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column; 
+  justify-content: center;
+  width: 100%;
+  min-height: 100%;
+  padding: 20px;
+}
+.error-message {
+  color: red;
+  margin-top: 10px;
+  font-size: 17px;
+}
+
 
 .inicio{  
   width: 460px; 

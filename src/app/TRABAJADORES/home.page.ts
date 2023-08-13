@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../services/data.service';
 import { Usuario } from '../interfaces/usuario';
+import { LoginStatusService } from '../services/login-status.service'; // Importar el servicio
 
 @Component({
   selector: 'app-home',
@@ -14,11 +15,13 @@ export class HomePage implements OnInit {
   public password: string;
   public passwordFieldType: string = 'password'; // Agrega esta propiedad
   public showPassword: boolean = false; // Agrega esta propiedad
+  public loginError: boolean = false; // Agregar esta línea para definir loginError
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private dataService: DataService
+    private dataService: DataService,
+    private loginStatusService: LoginStatusService // Inyectar el servicio
   ) {
     this.username = '';
     this.password = '';
@@ -36,6 +39,8 @@ export class HomePage implements OnInit {
       (user: Usuario) => {
         if (user) {
           console.log('Inicio de sesión exitoso. Usuario:', user);
+          // Guardar el usuario en el servicio
+          this.loginStatusService.setLastLoggedInUser(user);
           // Redirigir al usuario a la página de opciones de administrador
           this.router.navigateByUrl('/opciones-emp');
         } else {
@@ -43,12 +48,13 @@ export class HomePage implements OnInit {
         }
       },
       (error) => {
-        console.error('Error al verificar el inicio de sesión:', error);
+        console.error('Error al verificar el inicio de sesión de administrador:', error);
+        this.loginError = true; // Mostrar el mensaje de error
       }
     );
   }
 
-  // Agrega esta función para mostrar/ocultar la contraseña
+  // Agregar esta función para mostrar/ocultar la contraseña
   togglePassword() {
     this.showPassword = !this.showPassword;
     this.passwordFieldType = this.showPassword ? 'text' : 'password';

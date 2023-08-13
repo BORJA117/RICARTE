@@ -4,10 +4,30 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="content-container">
-  <!-- Agrega la clase "container" al contenedor de la imagen -->
-  <div class="container">
-    <!-- Mostrar la imagen del código QR centrada y con un tamaño reducido -->
-    <ion-img [src]="qrDataURL" class="qr-image"></ion-img>
+<ion-content class="content-container">
+
+  <br>
+  <br>
+  <ion-card-subtitle>Código QR únicamente válido para la entrada al centro de datos de
+    la Universidad Tecnológica de Ciudad Juárez</ion-card-subtitle>
+  <br>
+
+  <div class="centrado">
+    <ion-card>
+      <ion-card-content class="centro">
+        <div *ngIf="qrDataURL">
+          <img [src]="qrDataURL" alt="Código QR del último formulario">
+        </div>
+      </ion-card-content>
+    </ion-card>
   </div>
+  <br>
+  <br>
+  <ion-card-subtitle>Fecha de creación:</ion-card-subtitle>
+  <ion-card-subtitle>02 de agosto del 2023</ion-card-subtitle>
+  <br>
+  
+  <!-- Se eliminó el ion-content extra aquí -->
+  <ion-button class="centered-button" (click)="descargarQR()">Descargar QR</ion-button>
+
 </ion-content>

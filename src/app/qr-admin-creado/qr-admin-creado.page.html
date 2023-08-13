@@ -1,15 +1,29 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="black">
-    <ion-title class="menu">QR GENERADO ADMIN</ion-title>
+    <ion-title class="menu">Código QR</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="content-container">
-  <div class="container">
-    <ion-label>{{ nombre }}</ion-label>
-    <a href="/cuestionario-qr-admin">
-      <ion-img src="/assets/icon/QR1.png"></ion-img>
-    </a>
-    <ion-button class="update-button" (click)="actualizarNombre()">Actualizar</ion-button>
+
+  <br>
+  <ion-title class="title">{{ usuario.nombre }}</ion-title>
+  <br>
+  <ion-card-subtitle>Código QR  unicamente valido para la entrada al centro de datos de 
+    la Universidad Tecnológica de Ciudad Juárez</ion-card-subtitle>
+  <br>
+
+  <div class="centrado">
+    <ion-card>
+      <ion-card-content  class="centro">
+        <canvas class="imagen" id="qr-canvas"></canvas>
+      </ion-card-content>
+    </ion-card>
   </div>
+  <br>
+  <br>
+  <ion-card-subtitle>Fecha de creación:</ion-card-subtitle>
+  <ion-card-subtitle>02 de agosto del 2023</ion-card-subtitle>
+  <br>
+  <ion-button class="boton" (click)="generateQR()">Actualizar QR</ion-button>
 </ion-content>

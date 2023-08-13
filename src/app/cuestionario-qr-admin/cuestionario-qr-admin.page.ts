@@ -1,43 +1,79 @@
-import { Component, ViewChild, AfterViewInit, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { ModalController } from '@ionic/angular';
+import { ModalContentPage } from '../modal-content/modal-content.page';
+import { Router } from '@angular/router';
 import * as QRCode from 'qrcode';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-cuestionario-qr-admin',
   templateUrl: './cuestionario-qr-admin.page.html',
   styleUrls: ['./cuestionario-qr-admin.page.scss'],
 })
-export class CuestionarioQrAdminPage implements AfterViewInit {
-  // Datos del formulario para el código QR
-  public formData = {
-    nombre: '',
-    apellidos: '',
-    correo: '',
-  };
+export class CuestionarioQrAdminPage implements OnInit {
+  empleadoForm: FormGroup;
 
-  @ViewChild('qrCanvas', { static: false }) qrCanvas?: ElementRef;
-
-  constructor(private route: ActivatedRoute, private router: Router) {}
-
-  ngAfterViewInit() {
-    // No generamos el código QR automáticamente al cargar la página
-  }
-
-  generarQR() {
-    const datosTexto = `${this.formData.nombre} ${this.formData.apellidos}\n${this.formData.correo}`;
-
-    QRCode.toCanvas(this.qrCanvas?.nativeElement, datosTexto, {
-      width: 150,
-    }, (error) => {
-      if (error) {
-        console.error('Error generando el código QR:', error);
-      } else {
-        console.log('Código QR generado con éxito.');
-
-        // Navegar a la página 'compartir-qr-admin' y pasar el código QR generado como parámetro
-        const qrDataURL = this.qrCanvas?.nativeElement.toDataURL();
-        this.router.navigate(['/compartir-qr-admin', { qrDataURL }]);
-      }
+  constructor(
+    private http: HttpClient,
+    private formBuilder: FormBuilder,
+    private modalController: ModalController,
+    private router: Router
+  ) {
+    this.empleadoForm = this.formBuilder.group({
+      id: [''],
+      nombre: [''],
+      apellidos: [''],
+      empresa: [''],
+      correo: [''],
+      telefono: [''],
+      motivodeingreso: [''],
     });
   }
+
+  ngOnInit() {}
+
+  async onSubmit() {
+    const formData = this.empleadoForm.value;
+
+    try {
+      const response = await this.http.post<any>('http://localhost:3000/guardar-formulario', formData).toPromise();
+      console.log('Datos guardados exitosamente:', response);
+
+      this.presentModal('¡Datos guardados con éxito!');
+
+      const qrData = JSON.stringify(response);
+      const qrOptions = {
+        errorCorrectionLevel: 'H' as QRCode.QRCodeErrorCorrectionLevel,
+      };
+
+      try {
+        const qrCodeDataURL = await QRCode.toDataURL(qrData, qrOptions);
+
+        this.router.navigate(['/compartir-qr-admin', { qrCodeDataURL }]);
+      } catch (error) {
+        console.error('Error al generar el código QR:', error);
+      }
+    } catch (error) {
+      console.error('Error al guardar los datos:', error);
+      this.presentModal('¡Error al guardar los datos! Por favor, inténtalo nuevamente.');
+    }
+  }
+
+  async presentModal(message: string) {
+    const modal = await this.modalController.create({
+      component: ModalContentPage,
+      cssClass: 'modal-content.page.scss',
+      componentProps: {
+        message: message,
+      },
+    });
+
+    return await modal.present();
+  }
 }
+
+
+
+
+       

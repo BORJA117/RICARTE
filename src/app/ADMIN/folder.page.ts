@@ -12,8 +12,9 @@ export class FolderPage implements OnInit {
   public folder!: string;
   public username: string;
   public password: string;
-  public passwordFieldType: string = 'password'; // Agrega esta propiedad
-  public showPassword: boolean = false; // Agrega esta propiedad
+  public passwordFieldType: string = 'password';
+  public showPassword: boolean = false;
+  public loginError: boolean = false; // Add this line to define loginError
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -31,24 +32,25 @@ export class FolderPage implements OnInit {
   login() {
     console.log('Datos del formulario:', this.username, this.password);
 
-    // Llamada al servicio para verificar el inicio de sesión en la base de datos MongoDB
-    this.dataService.verificarInicioSesion(this.username, this.password).subscribe(
-      (user: Usuario) => {
-        if (user) {
-          console.log('Inicio de sesión exitoso. Usuario:', user);
-          // Redirigir al usuario a la página de opciones de administrador
+    // Llamada al servicio para verificar el inicio de sesión de administrador
+    this.dataService.verificarInicioSesionAdmin(this.username, this.password).subscribe(
+      (adminUser: Usuario) => {
+        if (adminUser) {
+          console.log('Inicio de sesión exitoso. Administrador:', adminUser);
+          // Redirigir al administrador a la página de opciones de administrador
           this.router.navigateByUrl('/opciones-admin');
         } else {
-          console.log('Credenciales inválidas. Inicio de sesión fallido.');
+          console.log('Credenciales de administrador inválidas. Inicio de sesión fallido.');
+          this.loginError = true; // Show the error message
         }
       },
       (error) => {
-        console.error('Error al verificar el inicio de sesión:', error);
+        console.error('Error al verificar el inicio de sesión de administrador:', error);
+        this.loginError = true; // Show the error message
       }
     );
   }
 
-  // Agrega esta función para mostrar/ocultar la contraseña
   togglePassword() {
     this.showPassword = !this.showPassword;
     this.passwordFieldType = this.showPassword ? 'text' : 'password';
